@@ -1,0 +1,26 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WestWorldDisplayer.cs">
+    <Files>
+      <File FileName="Assets\Scripts\States\State.cs" Line="5" Column="37" />
+      <File FileName="Assets\Scripts\WestWorldLocation.cs" Line="5" Column="8" />
+      <File FileName="Assets\Scripts\States\Miner\EnterMineAndDigForNugget.cs" Line="26" Column="31" />
+      <File FileName="Assets\Scripts\States\Miner\VisitBankAndDepositGold.cs" Line="10" Column="2" />
+      <File FileName="Assets\Scripts\States\Miner\GoHomeAndSleepUntilRested.cs" Line="27" Column="17" />
+      <File FileName="Assets\Scripts\States\Miner\QuenchThirst.cs" Line="11" Column="2" />
+      <File FileName="Assets\Scripts\States\FiniteStateMachine.cs" Line="24" Column="44" />
+      <File FileName="Assets\Scripts\States\Miner\MinerGlobalState.cs" Line="17" Column="26" />
+      <File FileName="Assets\Scripts\WestWorldDisplayer.cs" Line="4" Column="32" />
+      <File FileName="Assets\Scripts\Agents\Miner.cs" Line="104" Column="3" />
+    </Files>
+    <Pads>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
