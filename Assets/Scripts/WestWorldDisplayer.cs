@@ -39,7 +39,7 @@ public class WestWorldDisplayer : MonoBehaviour
 	void Start()
 	{
 		_titleStyle = new GUIStyle();
-		_titleStyle.fontSize = 24;
+		_titleStyle.fontSize = 48;
 		_titleStyle.fontStyle = FontStyle.Bold;
 		_titleStyle.normal.textColor = new Color(0,0,0);
 		_titleStyle.alignment = TextAnchor.MiddleCenter;
@@ -67,7 +67,7 @@ public class WestWorldDisplayer : MonoBehaviour
 		_scrollPosition = GUILayout.BeginScrollView(_scrollPosition);
 		foreach(var item in this._items)
 		{
-			GUILayout.Label(item, _textStyle);	
+			GUILayout.Label(item, _textStyle);
 		}
 		GUILayout.EndScrollView();
 		

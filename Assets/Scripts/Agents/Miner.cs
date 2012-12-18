@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class Miner : MonoBehaviour 
+public class Miner : Agent<Miner> 
 {
 	#region Declarations
 	
@@ -10,7 +8,6 @@ public class Miner : MonoBehaviour
 	private const int MAX_NUGGETS = 3;
 	private const int THIRST_LEVEL = 5;
 	private const int TIREDNESS_THRESHOLD = 5;
-	private const float TICK_TIME = 5.0f;
 	
 	private WestWorldLocation _location = WestWorldLocation.Shack;
 	private int _goldCarried = 0;
@@ -18,41 +15,21 @@ public class Miner : MonoBehaviour
 	private int _thirst = 0;
 	private int _fatigue = 0;
 	
-	private FiniteStateMachine<Miner> _stateMachine;
-	private WestWorldDisplayer _display;
-	
-	private float _timeSinceLastTick = TICK_TIME;
-	
 	#endregion
 	
 	#region MonoBehaviour Members
 	
-	void Start () 
+	new void Start () 
 	{
+		base.Start();
 		this._stateMachine = new FiniteStateMachine<Miner>(this);
 		this._stateMachine.SetCurrentState(GoHomeAndSleepUntilRested.Instance);
 		this._stateMachine.SetGlobalState(MinerGlobalState.Instance);	
-		_display = WestWorldDisplayer.Instance;
-	}
-	
-	void Update () 
-	{
-		_timeSinceLastTick += Time.deltaTime;
-		if(_timeSinceLastTick > TICK_TIME)
-		{
-			_timeSinceLastTick = 0.0f;
-			this._stateMachine.Update();
-		}
-	}
+	}	
 	
 	#endregion
 	
 	#region Public Accessors
-	
-	public FiniteStateMachine<Miner> StateMachine 
-	{
-		get { return this._stateMachine; }
-	}
 	
 	public string Name 
 	{ 
