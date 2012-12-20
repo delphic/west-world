@@ -16,6 +16,7 @@ public class GoHomeAndSleepUntilRested : State<Miner>
 		{
 			miner.Speak("Walkin' home");
 			miner.ChangeLocation(WestWorldLocation.Shack);
+			miner.wife.DispatchMessage(WestWorldMessage.HoneyImHome);
 		}
 	}
 
@@ -39,6 +40,18 @@ public class GoHomeAndSleepUntilRested : State<Miner>
 	{
 		miner.Speak("Leaving the house");
 	}	
+	
+	public override void OnMessage (Miner agent, WestWorldMessage message)
+	{
+		base.OnMessage (agent, message);
+		switch(message)
+		{
+		case WestWorldMessage.StewReady:
+			agent.Speak("Okay hun, ahm a-comin'!");
+			agent.StateMachine.ChangeState(EatStew.Instance);
+			break;
+		}
+	}
 	
 	#endregion
 }

@@ -3,6 +3,7 @@ public class Miner : Agent<Miner>
 	#region Declarations
 	
 	public string minerName = "Miner Bob";
+	public MinersWife wife = null;
 	
 	private const int COMFORT_LEVEL = 5;
 	private const int MAX_NUGGETS = 3;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public abstract class Agent<T> : MonoBehaviour 
 {
@@ -33,6 +34,26 @@ public abstract class Agent<T> : MonoBehaviour
 			_timeSinceLastTick = 0.0f;
 			this._stateMachine.Update();
 		}
+	}
+	
+	#endregion
+	
+	#region Messsaging
+	
+	public void DispatchMessage(WestWorldMessage message) 
+	{
+		this.StateMachine.HandleMessage(message);
+	}
+	
+	public void DelayedMessage(float delay, WestWorldMessage message)
+	{
+		StartCoroutine(DispatchMessageAfterDelay(delay, message));
+	}
+	
+	IEnumerator DispatchMessageAfterDelay(float delay, WestWorldMessage message)
+	{
+		yield return new WaitForSeconds(delay);
+		this.DispatchMessage(message);
 	}
 	
 	#endregion

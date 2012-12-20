@@ -1,25 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class WestWorldDisplayer : MonoBehaviour 
-{
-	#region GameObject Singleton
-	
-	// NOTE: This component is designed to be created via Script, not in the editor
-	
-	private const string WEST_WORLD_DISPLAYER_NAME = "WestWorldDisplay";	
-	private static WestWorldDisplayer _instance; 
-	
-	public static WestWorldDisplayer Instance
-	{
-		get 
-		{
-			return _instance ?? (_instance = (new GameObject(WEST_WORLD_DISPLAYER_NAME)).AddComponent<WestWorldDisplayer>());
-		}
-	}
-	
-	#endregion
-	
+public class WestWorldDisplayer : MonoBehaviourSingleton<WestWorldDisplayer> 
+{	
 	#region Declarations
 	
 	private IDictionary<string, IList<string>> _itemLists = new Dictionary<string, IList<string>>();
@@ -85,8 +68,7 @@ public class WestWorldDisplayer : MonoBehaviour
 		if(this._itemLists.ContainsKey(name)) 
 		{
 			this._itemLists[name].Add(item);
-			var scrollPosition = this._scrollPositions[name];
-			scrollPosition.y = Mathf.Infinity;
+			this._scrollPositions[name] = new Vector2(this._scrollPositions[name].x, Mathf.Infinity);
 		}
 		else
 		{

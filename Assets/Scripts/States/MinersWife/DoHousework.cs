@@ -17,7 +17,7 @@ public class DoHousework : State<MinersWife>
 
 	public override void Execute(MinersWife wife)
 	{
-		switch(Mathf.RoundToInt(3*Random.value-0.5f))
+		switch(Mathf.RoundToInt(4*Random.value-0.5f))
 		{
 		case 0:
 			wife.Speak("Moppin' the floor");
@@ -27,6 +27,9 @@ public class DoHousework : State<MinersWife>
 			break;
 		case 2:
 			wife.Speak("Makin' the bed");
+			break;
+		case 3:
+			wife.Speak("Drinkin' cawfee");
 			break;
 		}
 	}

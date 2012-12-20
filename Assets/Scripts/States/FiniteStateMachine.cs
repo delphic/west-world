@@ -44,4 +44,16 @@ public class FiniteStateMachine<T>
 	{
 		this.ChangeState(this._previousState);
 	}
+	
+	public void HandleMessage(WestWorldMessage message)
+	{
+		if (this._currentState != null)
+		{
+			this._currentState.OnMessage(_agent, message);
+		}
+		if (this._globalState != null)
+		{
+			this._globalState.OnMessage(_agent, message);
+		}
+	}
 }

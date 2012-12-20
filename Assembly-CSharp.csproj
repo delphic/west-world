@@ -47,18 +47,22 @@
      <Compile Include="Assets\Scripts\Agents\Agent.cs" />
      <Compile Include="Assets\Scripts\Agents\Miner.cs" />
      <Compile Include="Assets\Scripts\Agents\MinersWife.cs" />
+     <Compile Include="Assets\Scripts\MonoBehaviourSingleton.cs" />
      <Compile Include="Assets\Scripts\States\FiniteStateMachine.cs" />
+     <Compile Include="Assets\Scripts\States\Miner\EatStew.cs" />
      <Compile Include="Assets\Scripts\States\Miner\EnterMineAndDigForNugget.cs" />
      <Compile Include="Assets\Scripts\States\Miner\GoHomeAndSleepUntilRested.cs" />
      <Compile Include="Assets\Scripts\States\Miner\MinerGlobalState.cs" />
      <Compile Include="Assets\Scripts\States\Miner\QuenchThirst.cs" />
      <Compile Include="Assets\Scripts\States\Miner\VisitBankAndDepositGold.cs" />
+     <Compile Include="Assets\Scripts\States\MinersWife\CookStew.cs" />
      <Compile Include="Assets\Scripts\States\MinersWife\DoHousework.cs" />
      <Compile Include="Assets\Scripts\States\MinersWife\MinersWifeGlobalState.cs" />
      <Compile Include="Assets\Scripts\States\MinersWife\VisitBathroom.cs" />
      <Compile Include="Assets\Scripts\States\State.cs" />
      <Compile Include="Assets\Scripts\WestWorldDisplayer.cs" />
      <Compile Include="Assets\Scripts\WestWorldLocation.cs" />
+     <Compile Include="Assets\Scripts\WestWorldMessage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

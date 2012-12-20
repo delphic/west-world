@@ -1,22 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Agents\Miner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\States\MinersWife\CookStew.cs">
     <Files>
-      <File FileName="Assets\Scripts\States\State.cs" Line="4" Column="34" />
-      <File FileName="Assets\Scripts\WestWorldLocation.cs" Line="5" Column="8" />
-      <File FileName="Assets\Scripts\States\Miner\EnterMineAndDigForNugget.cs" Line="26" Column="31" />
-      <File FileName="Assets\Scripts\States\Miner\VisitBankAndDepositGold.cs" Line="10" Column="2" />
-      <File FileName="Assets\Scripts\States\Miner\GoHomeAndSleepUntilRested.cs" Line="27" Column="17" />
-      <File FileName="Assets\Scripts\States\Miner\QuenchThirst.cs" Line="11" Column="2" />
-      <File FileName="Assets\Scripts\States\FiniteStateMachine.cs" Line="4" Column="13" />
-      <File FileName="Assets\Scripts\States\Miner\MinerGlobalState.cs" Line="20" Column="27" />
-      <File FileName="Assets\Scripts\WestWorldDisplayer.cs" Line="69" Column="4" />
-      <File FileName="Assets\Scripts\Agents\Miner.cs" Line="15" Column="26" />
-      <File FileName="Assets\Scripts\Agents\MinersWife.cs" Line="11" Column="20" />
-      <File FileName="Assets\Scripts\States\MinersWife\DoHousework.cs" Line="30" Column="10" />
-      <File FileName="Assets\Scripts\States\MinersWife\VisitBathroom.cs" Line="11" Column="23" />
-      <File FileName="Assets\Scripts\States\MinersWife\MinersWifeGlobalState.cs" Line="24" Column="2" />
-      <File FileName="Assets\Scripts\Agents\Agent.cs" Line="27" Column="2" />
+      <File FileName="Assets\Scripts\Agents\Agent.cs" Line="56" Column="23" />
+      <File FileName="Assets\Scripts\Agents\Miner.cs" Line="6" Column="32" />
+      <File FileName="Assets\Scripts\Agents\MinersWife.cs" Line="6" Column="30" />
+      <File FileName="Assets\Scripts\States\State.cs" Line="3" Column="23" />
+      <File FileName="Assets\Scripts\WestWorldMessage.cs" Line="1" Column="29" />
+      <File FileName="Assets\Scripts\States\Miner\GoHomeAndSleepUntilRested.cs" Line="19" Column="30" />
+      <File FileName="Assets\Scripts\States\MinersWife\MinersWifeGlobalState.cs" Line="3" Column="2" />
+      <File FileName="Assets\Scripts\States\MinersWife\CookStew.cs" Line="7" Column="54" />
     </Files>
     <Pads>
       <Pad Id="ClassPad">

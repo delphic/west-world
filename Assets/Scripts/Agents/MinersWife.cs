@@ -3,6 +3,8 @@ public class MinersWife : Agent<MinersWife>
 	#region Declarations
 	
 	public string wifeName = "Elsa";
+	public Miner husband = null;
+	public bool cooking = false;
 	
 	#endregion
 	
