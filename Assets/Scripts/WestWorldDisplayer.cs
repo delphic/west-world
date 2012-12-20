@@ -22,9 +22,9 @@ public class WestWorldDisplayer : MonoBehaviour
 	
 	#region Declarations
 	
-	private IList<string> _items = new List<string>();
-
-	private Vector2 _scrollPosition = new Vector2(0,0);
+	private IDictionary<string, IList<string>> _itemLists = new Dictionary<string, IList<string>>();
+	private IDictionary<string, Vector2> _scrollPositions = new Dictionary<string, Vector2>();
+	
 	private Rect _backgroundRect = new Rect(0, 0, Screen.width, Screen.height);
 	private Rect _containerRect = new Rect(Screen.width/4, 20, Screen.width/2, Screen.height-40);
 	private GUIStyle _backgroundStyle;
@@ -64,12 +64,15 @@ public class WestWorldDisplayer : MonoBehaviour
 		
 		GUILayout.Label("West World", _titleStyle);
 		
-		_scrollPosition = GUILayout.BeginScrollView(_scrollPosition);
-		foreach(var item in this._items)
+		foreach(var name in this._itemLists.Keys)
 		{
-			GUILayout.Label(item, _textStyle);
+			this._scrollPositions[name] = GUILayout.BeginScrollView(this._scrollPositions[name]);
+			foreach(var item in this._itemLists[name])
+			{
+				GUILayout.Label(string.Format("{0}: {1}", name, item), _textStyle);
+			}
+			GUILayout.EndScrollView();
 		}
-		GUILayout.EndScrollView();
 		
 		GUILayout.EndArea();
 		GUILayout.EndArea();
@@ -77,9 +80,18 @@ public class WestWorldDisplayer : MonoBehaviour
 	
 	#endregion
 	
-	public void AddItem(string item)
+	public void AddItem(string name, string item)
 	{
-		this._items.Add(item);
-		_scrollPosition.y = Mathf.Infinity;
+		if(this._itemLists.ContainsKey(name)) 
+		{
+			this._itemLists[name].Add(item);
+			var scrollPosition = this._scrollPositions[name];
+			scrollPosition.y = Mathf.Infinity;
+		}
+		else
+		{
+			this._itemLists.Add(name, new List<string> { item });
+			this._scrollPositions.Add(name, new Vector2(0,0));
+		}
 	}
 }

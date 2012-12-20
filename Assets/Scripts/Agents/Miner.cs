@@ -77,7 +77,7 @@ public class Miner : Agent<Miner>
 	
 	public void Speak(string message)
 	{
-		this._display.AddItem(string.Format("{0}: {1}", this.Name, message));
+		this._display.AddItem(this.Name, message);
 	}
 	
 	public void DepositGold()
