@@ -26,7 +26,7 @@ public class QuenchThirst : State<Miner>
 			miner.Speak(string.Format("Hey ya {0}, ahm hankin' for a drink!", miner.barTender));
 			miner.OrderDrink();
 		}
-		else if (miner.barTender == null)
+		else if (miner.barTender == null && miner.Thirsty)
 		{
 			// No Bar Tender apparent help yourself! 
 			miner.BuyAndDrinkWhisky();
