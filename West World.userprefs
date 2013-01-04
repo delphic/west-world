@@ -1,22 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\States\Miner\GoHomeAndSleepUntilRested.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WestWorldDisplayer.cs">
     <Files>
-      <File FileName="Assets\Scripts\Agents\Agent.cs" Line="52" Column="3" />
-      <File FileName="Assets\Scripts\Agents\Miner.cs" Line="136" Column="19" />
-      <File FileName="Assets\Scripts\Agents\BarTender.cs" Line="45" Column="3" />
-      <File FileName="Assets\Scripts\Agents\MinersWife.cs" Line="34" Column="2" />
-      <File FileName="Assets\Scripts\States\State.cs" Line="3" Column="23" />
-      <File FileName="Assets\Scripts\WestWorldMessage.cs" Line="6" Column="13" />
-      <File FileName="Assets\Scripts\States\Miner\GoHomeAndSleepUntilRested.cs" Line="39" Column="40" />
-      <File FileName="Assets\Scripts\States\MinersWife\MinersWifeGlobalState.cs" Line="18" Column="4" />
-      <File FileName="Assets\Scripts\States\MinersWife\CookStew.cs" Line="20" Column="19" />
-      <File FileName="Assets\Scripts\States\FiniteStateMachine.cs" Line="39" Column="22" />
-      <File FileName="Assets\Scripts\States\BarTender\BarTenderGlobal.cs" Line="12" Column="2" />
-      <File FileName="Assets\Scripts\States\BarTender\HaulBarrel.cs" Line="20" Column="55" />
-      <File FileName="Assets\Scripts\States\BarTender\ServeDrink.cs" Line="23" Column="27" />
-      <File FileName="Assets\Scripts\States\BarTender\TendBar.cs" Line="46" Column="47" />
-      <File FileName="Assets\Scripts\States\Miner\QuenchThirst.cs" Line="14" Column="3" />
+      <File FileName="Assets\Scripts\WestWorldDisplayer.cs" Line="58" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ClassPad">
