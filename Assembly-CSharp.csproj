@@ -45,9 +45,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Agents\Agent.cs" />
+     <Compile Include="Assets\Scripts\Agents\BarTender.cs" />
      <Compile Include="Assets\Scripts\Agents\Miner.cs" />
      <Compile Include="Assets\Scripts\Agents\MinersWife.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviourSingleton.cs" />
+     <Compile Include="Assets\Scripts\States\BarTender\BarTenderGlobal.cs" />
+     <Compile Include="Assets\Scripts\States\BarTender\HaulBarrel.cs" />
+     <Compile Include="Assets\Scripts\States\BarTender\ServeDrink.cs" />
+     <Compile Include="Assets\Scripts\States\BarTender\TendBar.cs" />
      <Compile Include="Assets\Scripts\States\FiniteStateMachine.cs" />
      <Compile Include="Assets\Scripts\States\Miner\EatStew.cs" />
      <Compile Include="Assets\Scripts\States\Miner\EnterMineAndDigForNugget.cs" />

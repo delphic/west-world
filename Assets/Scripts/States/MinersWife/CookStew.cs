@@ -10,7 +10,7 @@ public class CookStew : State<MinersWife>
 	
 	#region State Members
 	
-	private const float COOKING_TIME = 6.0f;
+	private const float COOKING_TIME = 4.0f;
 	
 	public override void Enter(MinersWife wife)
 	{

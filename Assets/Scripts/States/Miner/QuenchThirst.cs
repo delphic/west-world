@@ -21,17 +21,34 @@ public class QuenchThirst : State<Miner>
 
 	public override void Execute(Miner miner)
 	{
-		if(miner.Thirsty)
+		if(miner.barTender != null && !miner.WaitingForDrink && miner.Thirsty)
 		{
-			miner.BuyAndDrinkAWhisky();
+			miner.Speak(string.Format("Hey ya {0}, ahm hankin' for a drink!", miner.barTender));
+			miner.OrderDrink();
+		}
+		else if (miner.barTender == null)
+		{
+			// No Bar Tender apparent help yourself! 
+			miner.BuyAndDrinkWhisky();
 			miner.Speak("That's mighty fine sippin' liquer");
-			miner.StateMachine.ChangeState(EnterMineAndDigForNugget.Instance);
+			miner.StateMachine.ChangeState(EnterMineAndDigForNugget.Instance);			
 		}
 	}
 
 	public override void Exit(Miner miner)
 	{
 		miner.Speak("Leaving the saloon, feelin' good");
+	}
+	
+	public override void OnMessage(Miner miner, WestWorldMessage message)
+	{
+		base.OnMessage(miner, message);
+		if(message.Equals(WestWorldMessage.ServeDrink)) 
+		{
+			miner.DrinkWhisky();
+			miner.Speak("That's mighty fine sippin' liquer");
+			miner.StateMachine.ChangeState(EnterMineAndDigForNugget.Instance);
+		}
 	}
 	
 	#endregion

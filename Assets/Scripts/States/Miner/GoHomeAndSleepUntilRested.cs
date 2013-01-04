@@ -38,17 +38,17 @@ public class GoHomeAndSleepUntilRested : State<Miner>
 
 	public override void Exit(Miner miner)
 	{
-		miner.Speak("Leaving the house");
+		// Not strictly true, can exit state and eat stew staying in the house
 	}	
 	
-	public override void OnMessage (Miner agent, WestWorldMessage message)
+	public override void OnMessage(Miner miner, WestWorldMessage message)
 	{
-		base.OnMessage (agent, message);
+		base.OnMessage(miner, message);
 		switch(message)
 		{
 		case WestWorldMessage.StewReady:
-			agent.Speak("Okay hun, ahm a-comin'!");
-			agent.StateMachine.ChangeState(EatStew.Instance);
+			miner.Speak("Okay hun, ahm a-comin'!");
+			miner.StateMachine.ChangeState(EatStew.Instance);
 			break;
 		}
 	}

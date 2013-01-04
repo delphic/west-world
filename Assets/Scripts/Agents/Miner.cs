@@ -4,6 +4,7 @@ public class Miner : Agent<Miner>
 	
 	public string minerName = "Miner Bob";
 	public MinersWife wife = null;
+	public BarTender barTender = null;
 	
 	private const int COMFORT_LEVEL = 5;
 	private const int MAX_NUGGETS = 3;
@@ -15,6 +16,7 @@ public class Miner : Agent<Miner>
 	private int _moneyInBank = 0;
 	private int _thirst = 0;
 	private int _fatigue = 0;
+	private bool _waitingForDrink = false;
 	
 	#endregion
 	
@@ -55,6 +57,11 @@ public class Miner : Agent<Miner>
 	public bool Thirsty
 	{
 		get { return (this._thirst > THIRST_LEVEL); }
+	}
+	
+	public bool WaitingForDrink 
+	{
+		get { return this._waitingForDrink; }
 	}
 	
 	public bool ComfortablyWealthy
@@ -117,10 +124,23 @@ public class Miner : Agent<Miner>
 		this._moneyInBank += wealthIncrease;
 	}
 	
-	public void BuyAndDrinkAWhisky()
+	public void BuyAndDrinkWhisky()
 	{
+		this._moneyInBank = -2;
+		this._thirst = 0;
+	}
+	
+	public void OrderDrink()
+	{
+		this._waitingForDrink = true;
+		this.barTender.DispatchMessage(WestWorldMessage.NeedDrink);
+		this._moneyInBank = -2;
+	}
+	
+	public void DrinkWhisky()
+	{
+		this._waitingForDrink = false;
 		this._thirst = 0; 
-		this._moneyInBank -= 2;
 	}
 	
 	#endregion
