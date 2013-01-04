@@ -5,8 +5,21 @@ public class WestWorldDisplayer : MonoBehaviourSingleton<WestWorldDisplayer>
 {	
 	#region Declarations
 	
-	private IDictionary<string, IList<string>> _itemLists = new Dictionary<string, IList<string>>();
-	private IDictionary<string, Vector2> _scrollPositions = new Dictionary<string, Vector2>();
+	private class DisplayItems
+	{
+		public DisplayItems(IList<string> items)
+		{
+			this.items = items;
+			this.display = true;
+			this.scrollPosition = new Vector2(0,0);
+		}
+			
+		public IList<string> items;
+		public bool display;
+		public Vector2 scrollPosition;
+	}
+	
+	private IDictionary<string, DisplayItems> _itemLists = new Dictionary<string, DisplayItems>();
 	
 	private Rect _backgroundRect = new Rect(0, 0, Screen.width, Screen.height);
 	private Rect _containerRect = new Rect(Screen.width/4, 20, Screen.width/2, Screen.height-40);
@@ -14,6 +27,7 @@ public class WestWorldDisplayer : MonoBehaviourSingleton<WestWorldDisplayer>
 	private GUIStyle _containerStyle;
 	private GUIStyle _titleStyle;
 	private GUIStyle _textStyle;
+	private GUIStyle _toggleStyle;
 	
 	#endregion
 	
@@ -32,6 +46,14 @@ public class WestWorldDisplayer : MonoBehaviourSingleton<WestWorldDisplayer>
 		_textStyle.normal.textColor = new Color(0,0,0);
 		_textStyle.margin = new RectOffset(0,0,5,5);
 		
+		_toggleStyle = new GUIStyle();
+		_toggleStyle.normal.textColor = new Color(0,0,0);
+		_toggleStyle.onNormal.textColor = new Color(1,1,1);
+		_toggleStyle.onNormal.background = Resources.Load("active") as Texture2D;
+		_toggleStyle.margin = new RectOffset(5,5,5,5);
+		_toggleStyle.padding = new RectOffset(5,5,5,5);
+		_toggleStyle.font = Resources.Load("BleedingCowboys") as Font;
+		
 		_containerStyle = new GUIStyle();
 		_containerStyle.padding = new RectOffset(10,10,10,10);
 		_containerStyle.normal.background = Resources.Load("OldPaper") as Texture2D;
@@ -47,14 +69,27 @@ public class WestWorldDisplayer : MonoBehaviourSingleton<WestWorldDisplayer>
 		
 		GUILayout.Label("West World", _titleStyle);
 		
-		foreach(var name in this._itemLists.Keys)
+		var names = this._itemLists.Keys;
+		
+		GUILayout.BeginHorizontal();
+		foreach(var name in names)
 		{
-			this._scrollPositions[name] = GUILayout.BeginScrollView(this._scrollPositions[name]);
-			foreach(var item in this._itemLists[name])
+			this._itemLists[name].display = GUILayout.Toggle(this._itemLists[name].display, name, _toggleStyle);	
+		}
+		GUILayout.EndHorizontal();
+		
+		foreach(var name in names)
+		{
+			var currentItems = this._itemLists[name];
+			if(currentItems.display)
 			{
-				GUILayout.Label(string.Format("{0}: {1}", name, item), _textStyle);
+				currentItems.scrollPosition = GUILayout.BeginScrollView(currentItems.scrollPosition);
+				foreach(var item in currentItems.items)
+				{
+					GUILayout.Label(string.Format("{0}: {1}", name, item), _textStyle);
+				}
+				GUILayout.EndScrollView();
 			}
-			GUILayout.EndScrollView();
 		}
 		
 		GUILayout.EndArea();
@@ -67,13 +102,12 @@ public class WestWorldDisplayer : MonoBehaviourSingleton<WestWorldDisplayer>
 	{
 		if(this._itemLists.ContainsKey(name)) 
 		{
-			this._itemLists[name].Add(item);
-			this._scrollPositions[name] = new Vector2(this._scrollPositions[name].x, Mathf.Infinity);
+			this._itemLists[name].items.Add(item);
+			this._itemLists[name].scrollPosition = new Vector2(this._itemLists[name].scrollPosition.x, Mathf.Infinity);
 		}
 		else
 		{
-			this._itemLists.Add(name, new List<string> { item });
-			this._scrollPositions.Add(name, new Vector2(0,0));
+			this._itemLists.Add(name, new DisplayItems(new List<string> { item }));
 		}
 	}
 }
