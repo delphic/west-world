@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public abstract class Agent<T> : MonoBehaviour 
+public abstract class Agent<T> : AgentBase where T : AgentBase 
 {
 	#region Declarations
 	
@@ -35,6 +35,12 @@ public abstract class Agent<T> : MonoBehaviour
 			this._stateMachine.Update();
 		}
 	}
+	
+	#endregion
+	
+	#region AgentBase Members
+	
+	public override System.Type AgentType { get { return typeof(T);	} }
 	
 	#endregion
 	

@@ -1,4 +1,4 @@
-public class FiniteStateMachine<T>
+public class FiniteStateMachine<T> where T : AgentBase 
 {
 	private T _agent;
 	private State<T> _globalState = null;

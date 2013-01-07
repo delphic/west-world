@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class State<T>
+public abstract class State<T> where T : AgentBase 
 {
 	public abstract void Enter(T agent);
 	public abstract void Execute(T agent);

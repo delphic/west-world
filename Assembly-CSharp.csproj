@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Agents\Agent.cs" />
+     <Compile Include="Assets\Scripts\Agents\AgentBase.cs" />
      <Compile Include="Assets\Scripts\Agents\BarTender.cs" />
      <Compile Include="Assets\Scripts\Agents\Miner.cs" />
      <Compile Include="Assets\Scripts\Agents\MinersWife.cs" />
