@@ -1,13 +1,5 @@
-public class EnterMineAndDigForNugget : State<Miner> 
-{
-	#region Singleton
-	private static EnterMineAndDigForNugget _instance = null;
-	public static EnterMineAndDigForNugget Instance 
-	{
-		get { return _instance ?? (_instance = new EnterMineAndDigForNugget()); }
-	}
-	#endregion
-	
+public class EnterMineAndDigForNugget : StateSingleton<EnterMineAndDigForNugget, Miner> 
+{	
 	#region State Members
 	
 	public override void Enter(Miner miner)

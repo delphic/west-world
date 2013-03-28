@@ -1,13 +1,5 @@
-public class EatStew : State<Miner> 
+public class EatStew : StateSingleton<EatStew, Miner> 
 {
-	#region Singleton
-	private static EatStew _instance = null;
-	public static EatStew Instance 
-	{
-		get { return _instance ?? (_instance = new EatStew()); }
-	}
-	#endregion
-
 	#region State Members
 	
 	public override void Enter(Miner miner)

@@ -1,13 +1,5 @@
-public class MinersWifeGlobal : State<MinersWife> 
+public class MinersWifeGlobal : StateSingleton<MinersWifeGlobal, MinersWife> 
 {
-	#region Singleton
-	private static MinersWifeGlobal _instance = null;
-	public static MinersWifeGlobal Instance 
-	{
-		get { return _instance ?? (_instance = new MinersWifeGlobal()); }
-	}
-	#endregion
-	
 	#region State Members
 
 	public override void Enter(MinersWife wife) { }

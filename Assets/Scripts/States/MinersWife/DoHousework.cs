@@ -1,16 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class DoHousework : State<MinersWife> 
+public class DoHousework : StateSingleton<DoHousework, MinersWife> 
 {
-	#region Singleton
-	private static DoHousework _instance = null;
-	public static DoHousework Instance 
-	{
-		get { return _instance ?? (_instance = new DoHousework()); }
-	}
-	#endregion
-	
 	#region State Members
 
 	public override void Enter(MinersWife wife) { }

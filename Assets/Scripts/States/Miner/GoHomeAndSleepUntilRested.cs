@@ -1,13 +1,5 @@
-public class GoHomeAndSleepUntilRested : State<Miner> 
+public class GoHomeAndSleepUntilRested : StateSingleton<GoHomeAndSleepUntilRested, Miner> 
 {
-	#region Singleton
-	private static GoHomeAndSleepUntilRested _instance = null;
-	public static GoHomeAndSleepUntilRested Instance 
-	{
-		get { return _instance ?? (_instance = new GoHomeAndSleepUntilRested()); }
-	}
-	#endregion
-	
 	#region State Members
 	
 	public override void Enter(Miner miner)

@@ -1,15 +1,7 @@
 using UnityEngine;
 
-public class TendBar : State<BarTender> 
+public class TendBar : StateSingleton<TendBar, BarTender> 
 {
-	#region Singleton
-	private static TendBar _instance = null;
-	public static TendBar Instance 
-	{
-		get { return _instance ?? (_instance = new TendBar()); }
-	}
-	#endregion
-
 	#region State Members
 	
 	public override void Enter(BarTender bartender) { }

@@ -1,13 +1,5 @@
-public class BarTenderGlobal : State<BarTender> 
+public class BarTenderGlobal : StateSingleton<BarTenderGlobal, BarTender> 
 {
-	#region Singleton
-	private static BarTenderGlobal _instance = null;
-	public static BarTenderGlobal Instance 
-	{
-		get { return _instance ?? (_instance = new BarTenderGlobal()); }
-	}
-	#endregion
-
 	#region State Members
 	
 	public override void Enter(BarTender bartender) { }

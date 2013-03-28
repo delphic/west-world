@@ -1,13 +1,5 @@
-public class VisitBankAndDepositGold : State<Miner> 
-{
-	#region Singleton
-	private static VisitBankAndDepositGold _instance = null;
-	public static VisitBankAndDepositGold Instance 
-	{
-		get { return _instance ?? (_instance = new VisitBankAndDepositGold()); }
-	}
-	#endregion
-	
+public class VisitBankAndDepositGold : StateSingleton<VisitBankAndDepositGold, Miner> 
+{	
 	#region State Members
 	
 	public override void Enter(Miner miner)

@@ -1,13 +1,5 @@
-public class CookStew : State<MinersWife>
+public class CookStew : StateSingleton<CookStew, MinersWife>
 {
-	#region Singleton
-	private static CookStew _instance = null;
-	public static CookStew Instance 
-	{
-		get { return _instance ?? (_instance = new CookStew()); }
-	}
-	#endregion
-	
 	#region State Members
 	
 	private const float COOKING_TIME = 4.0f;

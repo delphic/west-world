@@ -1,13 +1,5 @@
-public class MinerGlobalState : State<Miner> 
-{
-	#region Singleton
-	private static MinerGlobalState _instance = null;
-	public static MinerGlobalState Instance 
-	{
-		get { return _instance ?? (_instance = new MinerGlobalState()); }
-	}
-	#endregion
-	
+public class MinerGlobalState : StateSingleton<MinerGlobalState, Miner> 
+{	
 	#region State Members
 
 	public override void Enter(Miner miner) { }

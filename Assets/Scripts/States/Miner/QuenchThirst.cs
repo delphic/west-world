@@ -1,13 +1,5 @@
-public class QuenchThirst : State<Miner> 
-{
-	#region Singleton
-	private static QuenchThirst _instance = null;
-	public static QuenchThirst Instance 
-	{
-		get { return _instance ?? (_instance = new QuenchThirst()); }
-	}
-	#endregion
-	
+public class QuenchThirst : StateSingleton<QuenchThirst, Miner> 
+{	
 	#region State Members
 	
 	public override void Enter(Miner miner)

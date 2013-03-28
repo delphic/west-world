@@ -1,13 +1,5 @@
-public class HaulBarrel : State<BarTender>
+public class HaulBarrel : StateSingleton<HaulBarrel, BarTender>
 {
-	#region Singleton
-	private static HaulBarrel _instance = null;
-	public static HaulBarrel Instance 
-	{
-		get { return _instance ?? (_instance = new HaulBarrel()); }
-	}
-	#endregion
-
 	#region State Members
 	
 	public override void Enter(BarTender bartender)

@@ -1,13 +1,5 @@
-public class ServeDrink : State<BarTender>
+public class ServeDrink : StateSingleton<ServeDrink, BarTender>
 {
-	#region Singleton
-	private static ServeDrink _instance = null;
-	public static ServeDrink Instance 
-	{
-		get { return _instance ?? (_instance = new ServeDrink()); }
-	}
-	#endregion
-
 	#region State Members
 	
 	public override void Enter(BarTender bartender) { }

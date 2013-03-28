@@ -1,13 +1,5 @@
-public class VisitBathroom : State<MinersWife> 
-{	
-	#region Singleton
-	private static VisitBathroom _instance = null;
-	public static VisitBathroom Instance 
-	{
-		get { return _instance ?? (_instance = new VisitBathroom()); }
-	}
-	#endregion
-	
+public class VisitBathroom : StateSingleton<VisitBathroom, MinersWife> 
+{
 	#region State Members
 
 	public override void Enter(MinersWife wife) 
